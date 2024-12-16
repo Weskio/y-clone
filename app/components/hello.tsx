@@ -1,5 +1,4 @@
 'use client'
-
 const hello = () => {
     console.log(`i'm a client component`)
   return (
