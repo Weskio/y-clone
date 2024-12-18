@@ -41,20 +41,20 @@ const StartupCard = ({ post }: { post: any }) => {
           <img
             src={image}
             width={48}
-            alt={`${authorName} image`}
             height={48}
+            alt={`${authorName} image`}
             className="rounded-full"
           />
         </Link>
       </div>
 
       <Link href={`/startup/${_id}`}>
-        <p className="startup-card-desc">{description}</p>
+        <p className="startup-card-desc my-5">{description}</p>
 
         <img
           src={image}
           alt={`${title} image`}
-          className="startup-card_img mt-3"
+          className="startup-card_img"
         ></img>
       </Link>
 
