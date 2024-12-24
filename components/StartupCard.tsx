@@ -1,9 +1,10 @@
 import { formatDate } from "@/lib/utils";
+import { StartupTypeCard } from "@/sanity/types";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const StartupCard = ({ post }: { post: any }) => {
+const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
     _id,
     _createdAt,
@@ -59,7 +60,7 @@ const StartupCard = ({ post }: { post: any }) => {
       </Link>
 
       <div className="flex-between gap-3 mt-5">
-        <Link href={`/?query=${category.toLowerCase()}`}>
+        <Link href={`/?query=${category?.toLowerCase()}`}>
           <p className="text-16-medium">{category}</p>
         </Link>
 
