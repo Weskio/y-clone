@@ -8,7 +8,7 @@ const StartupCard = ({ post }: { post: any }) => {
     _id,
     _createdAt,
     views,
-    author: { _id: authorId, name: authorName },
+    author: { _id: authorId, name: authorName, image: authorImage },
     title,
     category,
     image,
@@ -39,7 +39,7 @@ const StartupCard = ({ post }: { post: any }) => {
 
         <Link href={`user/${authorId}`}>
           <img
-            src={image}
+            src={authorImage}
             width={48}
             height={48}
             alt={`${authorName} image`}
@@ -60,14 +60,12 @@ const StartupCard = ({ post }: { post: any }) => {
 
       <div className="flex-between gap-3 mt-5">
         <Link href={`/?query=${category.toLowerCase()}`}>
-        <p className="text-16-medium">{category}</p>
+          <p className="text-16-medium">{category}</p>
         </Link>
-        
+
         <button className="startup-card_btn">
-            <Link href={`/startup/${_id}`}>Details</Link>
+          <Link href={`/startup/${_id}`}>Details</Link>
         </button>
-
-
       </div>
     </li>
   );
