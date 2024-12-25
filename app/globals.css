@@ -56,7 +56,7 @@ font-family: Work sans
     }
 
     .tag {
-        @apply bg-secondary px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative tag-tri;
+        @apply bg-yellow-400 px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative tag-tri;
     }
 
     .heading {
