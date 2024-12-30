@@ -1,11 +1,13 @@
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
-import { sanityFetch } from "@/sanity/lib/live";
 import { STARTUP_QUERY_BY_ID } from "@/sanity/lib/queries";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { Suspense } from "react";
+import markdownit from "markdown-it";
+import { Skeleton } from "@/components/ui/skeleton";
+const md = markdownit();
 
 const SingleStartup = async ({
   params,
@@ -16,6 +18,8 @@ const SingleStartup = async ({
   const post = await client.fetch(STARTUP_QUERY_BY_ID, { id });
 
   if (!post) return notFound();
+
+  const parsedContent = md.render(post?.pitch || "");
 
   return (
     <>
@@ -59,9 +63,19 @@ const SingleStartup = async ({
           </div>
 
           <h3 className="text-30-bold">Pitch Details</h3>
+          {parsedContent ? (
+            <article
+              className="prose max-w-4xl font-work-sans break-all"
+              dangerouslySetInnerHTML={{ __html: parsedContent }}
+            />
+          ) : (
+            <p className="no-result">No details provided</p>
+          )}
         </div>
 
         <hr className="divider" />
+
+        <Suspense fallback={<Skeleton/>}></Suspense>
       </section>
     </>
   );
