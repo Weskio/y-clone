@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import React, { Suspense } from "react";
 import markdownit from "markdown-it";
 import { Skeleton } from "@/components/ui/skeleton";
+import View from "@/components/View";
 const md = markdownit();
 
 const SingleStartup = async ({
@@ -75,7 +76,9 @@ const SingleStartup = async ({
 
         <hr className="divider" />
 
-        <Suspense fallback={<Skeleton/>}></Suspense>
+        <Suspense fallback={<Skeleton className="view_skeleton" />}>
+          <View views={post.views} />
+        </Suspense>
       </section>
     </>
   );
