@@ -1,8 +1,10 @@
 import { formatDate } from "@/lib/utils";
-import { StartupTypeCard } from "@/sanity/types";
+import { Author, Startup } from "@/sanity/types";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+
+type StartupTypeCard = Omit<Startup, "author"> & { author: Author };
 
 const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
