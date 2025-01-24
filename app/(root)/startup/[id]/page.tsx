@@ -8,6 +8,7 @@ import React, { Suspense } from "react";
 import markdownit from "markdown-it";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
+import { writeClient } from "@/sanity/lib/write-client";
 const md = markdownit();
 
 const SingleStartup = async ({
@@ -21,6 +22,11 @@ const SingleStartup = async ({
   if (!post) return notFound();
 
   const parsedContent = md.render(post?.pitch || "");
+
+  await writeClient
+    .patch(id)
+    .set({ views: post.views + 1 })
+    .commit();
 
   return (
     <>
