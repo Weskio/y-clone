@@ -1,4 +1,3 @@
-import { DoorsOpenInput } from "@/components/DoorsOpenInput";
 import CalenderIcon from "@/components/schemaIcons/CalenderIcon";
 import { defineField, defineType } from "sanity";
 
@@ -30,9 +29,6 @@ export const sanitySchema = defineType({
       description: "Number of minutes before the start time for admission",
       type: "number",
       initialValue: 60,
-      components: {
-        input: DoorsOpenInput,
-      },
     }),
   ],
 });
