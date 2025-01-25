@@ -1,6 +1,7 @@
 import { formatDate } from "@/lib/utils";
 import { Author, Startup } from "@/sanity/types";
 import { EyeIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -41,8 +42,8 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         </div>
 
         <Link href={`user/${authorId}`}>
-          <img
-            src={authorImage}
+          <Image
+            src={authorImage || ''}
             width={48}
             height={48}
             alt={`${authorName} image`}
@@ -55,10 +56,10 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         <p className="startup-card-desc my-5">{description}</p>
 
         <img
-          src={image}
+          src={image || ''}
           alt={`${title} image`}
           className="startup-card_img"
-        ></img>
+        />
       </Link>
 
       <div className="flex-between gap-3 mt-5">

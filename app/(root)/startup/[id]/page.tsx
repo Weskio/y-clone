@@ -8,7 +8,6 @@ import React, { Suspense } from "react";
 import markdownit from "markdown-it";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
-import { writeClient } from "@/sanity/lib/write-client";
 const md = markdownit();
 
 const SingleStartup = async ({
@@ -33,7 +32,7 @@ const SingleStartup = async ({
       </section>
 
       <section className="section_container">
-        <img
+        <Image
           src={post.image}
           alt="thumbnail"
           className="w-full h-auto rounded-xl"
