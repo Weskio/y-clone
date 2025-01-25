@@ -49,7 +49,7 @@ export const STARTUP_QUERY_BY_ID =
 export const AUTHOR_BY_GITHUB_ID_QUERY =
   defineQuery(`*[_type == "author" && _id == $id][0]{
     _id, 
-    id
+    id,
     name,
     username,
     image, 
