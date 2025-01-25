@@ -23,11 +23,6 @@ const SingleStartup = async ({
 
   const parsedContent = md.render(post?.pitch || "");
 
-  await writeClient
-    .patch(id)
-    .set({ views: post.views + 1 })
-    .commit();
-
   return (
     <>
       <section className="pink_container !min-h-[230px]">
@@ -83,7 +78,7 @@ const SingleStartup = async ({
         <hr className="divider" />
 
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
-          <View views={post.views} />
+          <View id={id} />
         </Suspense>
       </section>
     </>
