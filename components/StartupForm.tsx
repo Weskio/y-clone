@@ -10,12 +10,17 @@ import { z } from "zod";
 import { formSchema } from "@/lib/validation";
 import { useToast } from "@/hooks/use-toast";
 
+interface FormState {
+  error: string;
+  status: string;
+}
+
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pitch, setPitch] = useState("");
   const { toast } = useToast();
 
-  const handleFormSubmit = async (prevState: any, formData: FormData) => {
+  const handleFormSubmit = async (prevState = {}, formData: FormData) => {
     try {
       const formValues = {
         title: formData.get("title") as string,
@@ -56,8 +61,7 @@ const StartupForm = () => {
     }
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const [state, formAction, isPending] = useActionState(handleFormSubmit, {
+  const [, formAction, isPending] = useActionState(handleFormSubmit, {
     error: "",
     status: "INITIAL",
   });
