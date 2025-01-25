@@ -10,11 +10,6 @@ import { z } from "zod";
 import { formSchema } from "@/lib/validation";
 import { useToast } from "@/hooks/use-toast";
 
-interface FormState {
-  error: string;
-  status: string;
-}
-
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pitch, setPitch] = useState("");
