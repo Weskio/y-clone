@@ -10,6 +10,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
 const md = markdownit();
 
+export const experimental_ppr = true;
+
 const SingleStartup = async ({
   params,
 }: {
@@ -35,7 +37,9 @@ const SingleStartup = async ({
         <Image
           src={post.image}
           alt="thumbnail"
-          className="w-full h-auto rounded-xl"
+          width={1240}
+          height={1240}
+          className="w-full h-[650px] object-cover rounded-xl"
         />
 
         <div className="space-y-5 mt-10 max-w-4xl mx-auto">
