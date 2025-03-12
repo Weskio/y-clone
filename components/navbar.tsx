@@ -30,7 +30,7 @@ const Navbar = async () => {
                 <button type="submit">Logout</button>
               </form>
 
-              <Link href={`/user/${session?.user.id}`}>
+              <Link href={`/user/${session.id}`}>
                 <span>{session.user.name}</span>
               </Link>
             </>
@@ -39,7 +39,7 @@ const Navbar = async () => {
               action={async () => {
                 "use server";
 
-                await signIn('github');
+                await signIn("github");
               }}
             >
               <button type="submit">Login</button>
